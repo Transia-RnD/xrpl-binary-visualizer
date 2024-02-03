@@ -470,6 +470,7 @@ div#errormsg {
                 return bad("Input was not base64 or hex, I don't know what to do with it...")
             }
 
+            let emitted_details = false
             unknown_detected = false
 
             var negative_depth = false
@@ -996,6 +997,9 @@ div#errormsg {
                     }
                     else if (st_type == 8) to_accumulate = 42
                     else if (st_type == 14) {
+                        if (st_field == 13) {
+                            emitted_details = true
+                        }
                         if (st_field == 1) {
                                  object_depth-- // end of object
                                  indent_level -= 2
@@ -1215,7 +1219,7 @@ div#errormsg {
                     " is definitely a public key not an STObject" :
                     ( len == 66 ? "might be a public key." :
                     ( len == 40 ? "might be an AccountID.": "might be a hash." ))))
-            if (unknown_detected && inp[0] === '9' && inp[1] === '9')
+            if (unknown_detected && emitted_details)
                 return good()
             if (unknown_detected)
                 return ugly("Unknown fields detected " +
