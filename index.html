@@ -1215,6 +1215,8 @@ div#errormsg {
                     " is definitely a public key not an STObject" :
                     ( len == 66 ? "might be a public key." :
                     ( len == 40 ? "might be an AccountID.": "might be a hash." ))))
+            if (unknown_detected && inp[0] === '9' && inp[1] === '9')
+                return good()
             if (unknown_detected)
                 return ugly("Unknown fields detected " +
                             ( i == inp.length ? "" : "and parser did not end cleanly, ") + "either not an STObject or wrong definitions.json. Try adding: ?url-to-your-definitions.json to the current URL")
