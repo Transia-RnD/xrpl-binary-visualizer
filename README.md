@@ -2,7 +2,7 @@
 Visualize the decoding process for an STObject blob, such as a transaction, ledger object or manifest.
 
 ## Use in your browser
-To use go to [the github pages link here](https://richardah.github.io/xrpl-binary-visualizer/)
+To use go to [the github pages link here](https://transia-rnd.github.io/xrpl-binary-visualizer/)
 
 Here's an example blob to try
 ```
